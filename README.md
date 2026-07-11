@@ -1,6 +1,12 @@
 # Software DNA
 
-Software DNA is an advanced platform designed to analyze, map, and visualize the structure, relationships, and evolution of software codebases.
+Software DNA is an AI-powered Software Intelligence Platform that models software systems as living knowledge graphs.
+
+Instead of viewing software as files and folders, Software DNA understands architecture, dependencies, code evolution, developer knowledge, and system health.
+
+## Vision
+
+Transform software repositories into living digital organisms capable of explaining themselves, predicting future problems, and assisting developers through intelligent reasoning.
 
 ## Directory Structure
 
