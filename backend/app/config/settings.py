@@ -35,6 +35,11 @@ class Settings(BaseSettings):
     # Logging Settings
     LOG_LEVEL: str = "INFO"
 
+    # Workspace & Git Settings
+    WORKSPACE_BASE_DIR: str = "workspace/repos"
+    GIT_CLONE_TIMEOUT: int = 300
+    GIT_EXECUTABLE: Optional[str] = None
+
     # Settings configurations
     model_config = SettingsConfigDict(
         case_sensitive=True,
