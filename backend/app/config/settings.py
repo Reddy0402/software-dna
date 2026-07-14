@@ -40,6 +40,47 @@ class Settings(BaseSettings):
     GIT_CLONE_TIMEOUT: int = 300
     GIT_EXECUTABLE: Optional[str] = None
 
+    # Language Detection Configuration (extension -> language)
+    LANGUAGE_MAP: dict[str, str] = {
+        "py": "Python",
+        "js": "JavaScript",
+        "mjs": "JavaScript",
+        "cjs": "JavaScript",
+        "ts": "TypeScript",
+        "tsx": "TypeScript",
+        "java": "Java",
+        "cpp": "C++",
+        "cc": "C++",
+        "cxx": "C++",
+        "hpp": "C++",
+        "c": "C",
+        "h": "C",
+        "go": "Go",
+        "rs": "Rust",
+        "cs": "C#"
+    }
+
+    # Directories to ignore recursively during traversal
+    IGNORED_DIRECTORIES: list[str] = [
+        ".git", ".github", "node_modules", "venv", ".venv", "dist", "build",
+        "target", "bin", "obj", "coverage", ".idea", ".vscode", "__pycache__",
+        ".pytest_cache", ".mypy_cache", ".next", ".nuxt", ".terraform"
+    ]
+
+    # File extensions to ignore (binaries, compiled artifacts, media, lockfiles)
+    IGNORED_EXTENSIONS: list[str] = [
+        "zip", "tar", "gz", "rar", "7z", "bz2", "xz",
+        "exe", "dll", "so", "dylib", "bin", "o", "a", "lib", "pyc", "class", "jar", "war",
+        "png", "jpg", "jpeg", "gif", "svg", "ico", "webp", "bmp", "tiff",
+        "mp4", "mkv", "avi", "mov", "flv", "wmv", "lock"
+    ]
+
+    # Specific file names to ignore
+    IGNORED_FILENAMES: list[str] = [
+        "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "cargo.lock",
+        "poetry.lock", "composer.lock", "mix.lock", "paket.lock"
+    ]
+
     # Settings configurations
     model_config = SettingsConfigDict(
         case_sensitive=True,
