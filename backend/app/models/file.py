@@ -24,3 +24,6 @@ class File(Base):
 
     # Relationship back to the repository
     repository: Mapped["Repository"] = relationship("Repository", back_populates="files")
+    code_entities: Mapped[list["CodeEntity"]] = relationship(
+        "CodeEntity", back_populates="file", cascade="all, delete-orphan"
+    )

@@ -27,6 +27,9 @@ class Repository(Base):
     files: Mapped[list["File"]] = relationship(
         "File", back_populates="repository", cascade="all, delete-orphan"
     )
+    code_entities: Mapped[list["CodeEntity"]] = relationship(
+        "CodeEntity", back_populates="repository", cascade="all, delete-orphan"
+    )
     
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
