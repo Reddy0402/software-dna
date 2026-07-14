@@ -12,11 +12,11 @@ sys.path.insert(
 )
 
 # Set environment overrides for configuration
-os.environ["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
+os.environ["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test_temp.db"
 from app.config import settings
 
-# Override settings directly to ensure it points to SQLite in-memory db
-settings.SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+# Override settings directly to ensure it points to SQLite file db
+settings.SQLALCHEMY_DATABASE_URI = "sqlite:///test_temp.db"
 
 from app.database.base_class import Base
 from app.api.deps import get_db
@@ -40,6 +40,12 @@ def create_test_db():
     Base.metadata.create_all(bind=test_engine)
     yield
     Base.metadata.drop_all(bind=test_engine)
+    # Clean up the SQLite temp file
+    if os.path.exists("test_temp.db"):
+        try:
+            os.remove("test_temp.db")
+        except OSError:
+            pass
 
 
 @pytest.fixture
