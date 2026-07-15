@@ -17,3 +17,4 @@ tree-sitter-c
 tree-sitter-go
 tree-sitter-rust
 tree-sitter-c-sharp
+neo4j>=5.0.0

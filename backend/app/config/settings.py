@@ -35,6 +35,12 @@ class Settings(BaseSettings):
     # Logging Settings
     LOG_LEVEL: str = "INFO"
 
+    # Neo4j Settings
+    NEO4J_URI: str = "bolt://localhost:7687"
+    NEO4J_USER: str = "neo4j"
+    NEO4J_PASSWORD: str = "neo4j"
+    NEO4J_DATABASE: str = "neo4j"
+
     # Workspace & Git Settings
     WORKSPACE_BASE_DIR: str = "workspace/repos"
     GIT_CLONE_TIMEOUT: int = 300
