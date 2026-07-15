@@ -43,3 +43,11 @@ class CodeEntity(Base):
     children: Mapped[List["CodeEntity"]] = relationship(
         "CodeEntity", back_populates="parent", cascade="all, delete-orphan"
     )
+    source_dependencies: Mapped[List["Dependency"]] = relationship(
+        "Dependency", foreign_keys="Dependency.source_entity_id",
+        back_populates="source_entity", cascade="all, delete-orphan"
+    )
+    target_dependencies: Mapped[List["Dependency"]] = relationship(
+        "Dependency", foreign_keys="Dependency.target_entity_id",
+        back_populates="target_entity"
+    )

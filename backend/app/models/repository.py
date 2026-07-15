@@ -30,6 +30,9 @@ class Repository(Base):
     code_entities: Mapped[list["CodeEntity"]] = relationship(
         "CodeEntity", back_populates="repository", cascade="all, delete-orphan"
     )
+    dependencies: Mapped[list["Dependency"]] = relationship(
+        "Dependency", back_populates="repository", cascade="all, delete-orphan"
+    )
     
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

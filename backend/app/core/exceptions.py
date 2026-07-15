@@ -13,3 +13,18 @@ class InvalidRepositoryURLError(RepositoryImportError):
 class GitCloneError(RepositoryImportError):
     """Exception raised when cloning a repository fails."""
     pass
+
+
+class DependencyExtractionError(Exception):
+    """Exception raised when dependency extraction encounters an error."""
+    def __init__(self, message: str):
+        super().__init__(message)
+        self.message = message
+
+
+class GraphSyncError(Exception):
+    """Exception raised when Neo4j graph synchronization encounters an error."""
+    def __init__(self, message: str):
+        super().__init__(message)
+        self.message = message
+
