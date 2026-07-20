@@ -169,7 +169,7 @@ export const RELATIONSHIP_TYPE_OPTIONS: RelationshipType[] = [
 ];
 
 // View state types
-export type ViewMode = 'dashboard' | 'explorer';
+export type ViewMode = 'dashboard' | 'explorer' | 'analytics';
 
 export interface FilterState {
   nodeTypes: EntityType[];

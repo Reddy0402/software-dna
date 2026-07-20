@@ -9,6 +9,7 @@ import EntityDetailPanel from '../panels/EntityDetailPanel';
 import FilterPanel from '../panels/FilterPanel';
 import SearchPanel from '../panels/SearchPanel';
 import StatisticsPanel from '../panels/StatisticsPanel';
+import AnalyticsDashboard from '../analytics/AnalyticsDashboard';
 import { ErrorBanner } from '../common/Common';
 import { useGraphStatistics } from '../../hooks/useGraphHooks';
 
@@ -57,6 +58,13 @@ function ExplorerView() {
 
         <div className="explorer__header-right">
           <button
+            className="toolbar-btn"
+            onClick={() => setViewMode('analytics')}
+            title="Analytics Dashboard"
+          >
+            📊 Analytics
+          </button>
+          <button
             className={`toolbar-btn ${isFilterPanelOpen ? 'toolbar-btn--active' : ''}`}
             onClick={() => setFilterPanelOpen(!isFilterPanelOpen)}
             title="Filters"
@@ -101,6 +109,8 @@ export default function AppShell() {
     <div className="app-shell">
       {viewMode === 'dashboard' ? (
         <RepositoryDashboard />
+      ) : viewMode === 'analytics' ? (
+        <AnalyticsDashboard />
       ) : (
         <ReactFlowProvider>
           <ExplorerView />
@@ -109,3 +119,4 @@ export default function AppShell() {
     </div>
   );
 }
+

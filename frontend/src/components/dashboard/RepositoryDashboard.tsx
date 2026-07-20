@@ -123,8 +123,18 @@ export default function RepositoryDashboard() {
               )}
 
               {repo.graph_status === 'completed' && (
-                <div className="repo-card__cta">
-                  Open Explorer →
+                <div className="repo-card__cta-row">
+                  <span className="repo-card__cta">Open Explorer →</span>
+                  <span
+                    className="repo-card__cta repo-card__cta--analytics"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedRepoId(repo.id);
+                      setViewMode('analytics');
+                    }}
+                  >
+                    📊 Analytics
+                  </span>
                 </div>
               )}
             </button>
