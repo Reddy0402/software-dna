@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import health, repositories, scan, parse, extract, dependencies, graph, graph_explorer
+from app.api.v1.endpoints import health, repositories, scan, parse, extract, dependencies, graph, graph_explorer, analytics
 
 api_router = APIRouter()
 
@@ -12,3 +12,4 @@ api_router.include_router(extract.router, prefix="/files", tags=["extractor"])
 api_router.include_router(dependencies.router, prefix="/repositories", tags=["dependencies"])
 api_router.include_router(graph.router, prefix="/repositories", tags=["graph"])
 api_router.include_router(graph_explorer.router, prefix="/graph", tags=["graph-explorer"])
+api_router.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
